@@ -28,6 +28,7 @@ import {
   namePredictionsCollections2,
 } from "../lib/constants/constants";
 
+// responsive is required hai
 function LoginPage() {
   const [username, setUsername] = useState<string>("");
   const [isExcited, setIsExcited] = useState<boolean>(false);
