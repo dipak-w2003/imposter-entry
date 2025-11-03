@@ -1,26 +1,25 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  cat_frame001,
-  cat_frame002,
-  cat_frame003,
-  cat_frame004,
-  cat_frame005,
-  cat_frame006,
-  cat_frame007,
-  cat_frame008,
-  cat_frame010,
-  cat_frame011,
-  cat_frame012,
-  cat_frame013,
-  cat_frame014,
-  cat_frame015,
-  cat_frame025,
-  cat_frame026,
-  cat_frame027,
-  cat_frame028,
-  cat_frame044,
-  cat_frame049,
+  cat_frame1,
+  cat_frame2,
+  cat_frame3,
+  cat_frame4,
+  cat_frame5,
+  cat_frame6,
+  cat_frame7,
+  cat_frame8,
+  cat_frame9,
+  cat_frame10,
+  cat_frame11,
+  cat_frame12,
+  cat_frame13,
+  cat_frame14,
+  cat_frame16,
+  cat_frame17,
+  cat_frame18,
+  cat_frame19,
+  cat_frame20,
 } from "../assets/svg/meow-expressions/meow-expressions-collection";
 import { badGreetings, goodGreetings } from "../lib/constants/greetings";
 import {
@@ -33,42 +32,41 @@ function LoginPage() {
   const [username, setUsername] = useState<string>("");
   const [isExcited, setIsExcited] = useState<boolean>(false);
   const expression_HASH: Record<string, string> = {
-    u: cat_frame001,
-    un: cat_frame002,
-    uni: cat_frame003,
-    unis: cat_frame004,
-    unish: cat_frame005,
-    unisha: cat_frame006,
-    "unisha ": cat_frame007,
-    "unisha t": cat_frame008,
-    "unisha ta": cat_frame002,
-    "unisha tam": cat_frame003,
-    "unisha tama": cat_frame004,
-    "unisha taman": cat_frame005,
-    "unisha tamang": cat_frame006,
+    u: cat_frame1,
+    un: cat_frame2,
+    uni: cat_frame3,
+    unis: cat_frame4,
+    unish: cat_frame5,
+    unisha: cat_frame6,
+    "unisha ": cat_frame7,
+    "unisha t": cat_frame8,
+    "unisha ta": cat_frame2,
+    "unisha tam": cat_frame3,
+    "unisha tama": cat_frame4,
+    "unisha taman": cat_frame5,
+    "unisha tamang": cat_frame6,
   };
   const randomSmileyExpressions = [
-    cat_frame001,
-    cat_frame002,
-    cat_frame003,
-    cat_frame004,
-    cat_frame005,
-    cat_frame006,
+    cat_frame1,
+    cat_frame2,
+    cat_frame3,
+    cat_frame4,
+    cat_frame5,
+    cat_frame6,
+    cat_frame7,
   ];
 
   const randomSadExpressions = [
-    cat_frame010,
-    cat_frame011,
-    cat_frame012,
-    cat_frame013,
-    cat_frame014,
-    cat_frame015,
-    cat_frame025,
-    cat_frame026,
-    cat_frame027,
-    cat_frame028,
-    cat_frame044,
-    cat_frame049,
+    cat_frame9,
+    cat_frame10,
+    cat_frame11,
+    cat_frame12,
+    cat_frame13,
+    cat_frame14,
+    cat_frame16,
+    cat_frame17,
+    cat_frame18,
+    cat_frame19,
   ];
 
   // Choose current cat frame
@@ -83,7 +81,7 @@ function LoginPage() {
     // pick random fallback image safely
     const randomIndex = Math.floor(Math.random() * randomSadExpressions.length);
     const randomImage = randomSadExpressions[randomIndex];
-    return randomImage || cat_frame049;
+    return randomImage || cat_frame20;
   }, [username]);
 
   return (
