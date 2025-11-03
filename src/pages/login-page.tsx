@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ChangeEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   cat_frame1,
@@ -26,11 +26,18 @@ import {
   namePredictionsCollections,
   namePredictionsCollections2,
 } from "../lib/constants/constants";
+import type { AppDispatch, RootState } from "../lib/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { setName } from "../lib/store/user-general-slice";
+import { useNavigate } from "react-router-dom";
 
 // responsive is required hai
 function LoginPage() {
   const [username, setUsername] = useState<string>("");
   const [isExcited, setIsExcited] = useState<boolean>(false);
+  const { name: nameState } = useSelector(
+    (state: RootState) => state.userGeneralSlice
+  );
   const expression_HASH: Record<string, string> = {
     u: cat_frame1,
     un: cat_frame2,
@@ -68,7 +75,8 @@ function LoginPage() {
     cat_frame18,
     cat_frame19,
   ];
-
+  const dispatch: AppDispatch = useDispatch();
+  const naviagte = useNavigate();
   // Choose current cat frame
   const currentFrame = useMemo(() => {
     const randomIndex0 = Math.floor(
@@ -84,17 +92,39 @@ function LoginPage() {
     return randomImage || cat_frame20;
   }, [username]);
 
+  const handleUsername = (e: ChangeEvent<HTMLInputElement>) => {
+    const _name = e.target.value;
+    if (_name.length < 0) return;
+    setUsername(_name);
+  };
+
+  const handleButton = () => {
+    const _name = username;
+    // if (_name.length! > 0) return;
+    if (namePredictionsCollections2.includes(_name.toLowerCase())) {
+      dispatch(setName(_name));
+      console.log("Name :", nameState || "N/A");
+      naviagte("/loading");
+    } else {
+      dispatch(setName(""));
+    }
+  };
   return (
-    <main className="flex flex-col justify-center items-center h-screen bg-gradient-to-br from-pink-100 via-yellow-50 to-pink-200 overflow-hidden">
-      <section className="flex flex-col h-[600px] w-[600px] justify-center items-center relative overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]">
+    <main className="flex flex-col justify-center items-center h-dvh bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200 overflow-hidden">
+      <section
+        className="flex flex-col  justify-center items-center relative overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]
+        h-[605px] w-[300px]
+        sm:h-[600px] sm:w-[600px]
+      "
+      >
         {/* 🐱 Cat Expression */}
-        <div className="box-image h-[300px] w-[300px] absolute -top-24 z-10 ">
+        <div className="box-image   h-[260px] w-[260px] absolute -top-12 z-10 ">
           <AnimatePresence mode="wait">
             <motion.img
               src={currentFrame}
               draggable={false}
               alt="cat expression"
-              className="h-full w-full absolute -bottom-14 z-10 select-none drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]"
+              className="h-full w-full absolute -bottom-10 z-10 select-none drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{
                 opacity: 1,
@@ -113,7 +143,7 @@ function LoginPage() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="form w-[520px] h-[350px] relative mt-36 rounded-lg flex flex-col justify-center gap-6 items-center bg-white/60 backdrop-blur-md border border-white/30"
+          className="form w-[500px] h-[350px] relative mt-44 rounded-lg flex flex-col justify-center gap-6 items-center bg-white/60 backdrop-blur-md border border-white/30"
           style={{ boxShadow: "inset 2px 2px 10px 2px rgba(0,0,0,0.25)" }}
         >
           <motion.header
@@ -127,10 +157,13 @@ function LoginPage() {
 
           {/* Input field */}
           <motion.input
-            onChange={(e) => setUsername(e.target.value)}
+            autoFocus={true}
+            autoComplete="off"
+            onChange={handleUsername}
             type="text"
             placeholder="Your Full Name"
-            className="bg-transparent placeholder:text-gray-700 h-[50px] w-[300px] rounded-lg px-4 border-none outline-none text-center text-lg"
+            className="bg-transparent placeholder:text-gray-700 h-[50px] 
+           w-[260px] sm:w-[300px] rounded-lg px-4 border-none outline-none text-center text-lg"
             style={{ boxShadow: "inset 2px 2px 10px 2px rgba(0,0,0,0.25)" }}
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -158,7 +191,7 @@ function LoginPage() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className={`cursor-pointer ${
-                  isExcited ? "bg-pink-300" : "bg-pink-200"
+                  isExcited ? "bg-pink-300" : "bg-pink-100"
                 } rounded-full px-4 py-2 text-gray-800 shadow-md`}
               >
                 Yes 😸
@@ -168,7 +201,7 @@ function LoginPage() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className={`cursor-pointer ${
-                  !isExcited ? "bg-yellow-300" : "bg-yellow-200"
+                  !isExcited ? "bg-yellow-300" : "bg-yellow-100"
                 } rounded-full px-4 py-2 text-gray-800 shadow-md`}
               >
                 No 😿
@@ -177,9 +210,10 @@ function LoginPage() {
           </div>
           {namePredictionsCollections2.includes(username.toLowerCase()) && (
             <motion.button
+              onClick={handleButton}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className={`cursor-pointer w-[20vw] ${
+              className={`cursor-pointer w-[40vw]  sm:w-[20vw] ${
                 isExcited ? "bg-pink-300" : "bg-pink-200"
               } rounded px-4 py-2 text-gray-800 shadow-md`}
               animate={{
@@ -225,7 +259,7 @@ export function ConditionalHeaderProvider({
       initial={{ opacity: 0, y: -20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className={`text-xl font-semibold text-center ${
+      className={` text-lg  sm:text-xl  font-semibold text-center ${
         isRealUnisha ? "text-pink-500" : "text-gray-600"
       }`}
     >

@@ -5,16 +5,29 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import LoginPage from "./pages/login-page";
+import LoginToUserLoadingPage from "./pages/login-to-user-loading-page";
+import { useSelector } from "react-redux";
+import type { RootState } from "./lib/store/store";
+import { namePredictionsCollections2 } from "./lib/constants/constants";
+import UserHomeLandingPage from "./pages/user-home-landing-page";
 function PrivateRoute({ children }: { children: JSX.Element }) {
-  // const { user } = useSelector((state: RootState) => state.userLogin);
-  const isLoggedIn: boolean = false;
-  return isLoggedIn ? children : <Navigate to="/login" />;
+  const { name, isLoaded } = useSelector(
+    (state: RootState) => state.userGeneralSlice
+  );
+  const _condition =
+    name && namePredictionsCollections2.includes(name) && isLoaded;
+  if (_condition) {
+    return _condition ? children : <Navigate to="/login" />;
+  }
 }
 
 function PublicRoute({ children }: { children: JSX.Element }) {
-  // const { user } = useSelector((state: RootState) => state.userLogin);
-  const isLoggedIn = false;
-  if (isLoggedIn) {
+  const { name, isLoaded } = useSelector(
+    (state: RootState) => state.userGeneralSlice
+  );
+  const _condition =
+    name && namePredictionsCollections2.includes(name) && isLoaded;
+  if (_condition) {
     return <Navigate to={"/user"} />;
   }
   return children;
@@ -29,10 +42,14 @@ export const router = createBrowserRouter([
     path: "/login",
     element: <PublicRoute children={<LoginPage />} />,
   },
+  {
+    path: "/loading",
+    element: <PublicRoute children={<LoginToUserLoadingPage />} />,
+  },
 
   {
     path: "/user",
-    element: <PrivateRoute children={<h1>User Page</h1>} />,
+    element: <PrivateRoute children={<UserHomeLandingPage />} />,
   },
   {
     path: "*",

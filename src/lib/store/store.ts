@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-
+import userGeneralSlice from "./user-general-slice"
 export const store = configureStore({
   reducer: {
-
+    userGeneralSlice: userGeneralSlice
   },
 })
 
