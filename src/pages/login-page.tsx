@@ -26,18 +26,14 @@ import {
   namePredictionsCollections,
   namePredictionsCollections2,
 } from "../lib/constants/constants";
-import type { AppDispatch, RootState } from "../lib/store/store";
-import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch } from "../lib/store/store";
+import { useDispatch } from "react-redux";
 import { setName } from "../lib/store/user-general-slice";
-import { useNavigate } from "react-router-dom";
 
 // responsive is required hai
 function LoginPage() {
   const [username, setUsername] = useState<string>("");
   const [isExcited, setIsExcited] = useState<boolean>(false);
-  const { name: nameState } = useSelector(
-    (state: RootState) => state.userGeneralSlice
-  );
   const expression_HASH: Record<string, string> = {
     u: cat_frame1,
     un: cat_frame2,
@@ -76,7 +72,6 @@ function LoginPage() {
     cat_frame19,
   ];
   const dispatch: AppDispatch = useDispatch();
-  const naviagte = useNavigate();
   // Choose current cat frame
   const currentFrame = useMemo(() => {
     const randomIndex0 = Math.floor(
@@ -103,8 +98,6 @@ function LoginPage() {
     // if (_name.length! > 0) return;
     if (namePredictionsCollections2.includes(_name.toLowerCase())) {
       dispatch(setName(_name));
-      console.log("Name :", nameState || "N/A");
-      naviagte("/loading");
     } else {
       dispatch(setName(""));
     }
