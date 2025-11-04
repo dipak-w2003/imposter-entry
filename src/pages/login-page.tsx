@@ -113,7 +113,7 @@ function LoginPage() {
     <main className="flex flex-col justify-center items-center h-dvh bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200 overflow-hidden">
       <section
         className="flex flex-col  justify-center items-center relative overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]
-        h-[605px] w-[300px]
+        h-[605px] w-[450px]
         sm:h-[600px] sm:w-[600px]
       "
       >
@@ -143,7 +143,7 @@ function LoginPage() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="form w-[500px] h-[350px] relative mt-44 rounded-lg flex flex-col justify-center gap-6 items-center bg-white/60 backdrop-blur-md border border-white/30"
+          className="form w-[440px] h-[350px] relative mt-44 rounded-lg flex flex-col justify-center gap-6 items-center bg-white/60 backdrop-blur-md border border-white/30"
           style={{ boxShadow: "inset 2px 2px 10px 2px rgba(0,0,0,0.25)" }}
         >
           <motion.header
