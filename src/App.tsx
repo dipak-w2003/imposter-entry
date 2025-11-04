@@ -4,56 +4,71 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import LoginPage from "./pages/login-page";
-import LoginToUserLoadingPage from "./pages/login-to-user-loading-page";
 import { useSelector } from "react-redux";
 import type { RootState } from "./lib/store/store";
+
+import LoginPage from "./pages/login-page";
+import LoginToUserLoadingPage from "./pages/login-to-user-loading-page";
 import { namePredictionsCollections2 } from "./lib/constants/constants";
-import UserHomeLandingPage from "./pages/user-home-landing-page";
+import Error404Page from "./pages/error-404-page";
+import UserPage from "./pages/user-page";
+
+// ✅ Helper hook for cleaner logic reuse
+function useAuth() {
+  const { name, isLoaded } = useSelector(
+    (state: RootState) => state.userGeneralSlice
+  );
+  const isAuthenticated =
+    !!name && namePredictionsCollections2.includes(name ?? "");
+  return { isAuthenticated, isLoaded };
+}
+
+// ✅ Private route wrapper
 function PrivateRoute({ children }: { children: JSX.Element }) {
-  const { name, isLoaded } = useSelector(
-    (state: RootState) => state.userGeneralSlice
-  );
-  const _condition =
-    name && namePredictionsCollections2.includes(name) && isLoaded;
-  if (_condition) {
-    return _condition ? children : <Navigate to="/login" />;
-  }
+  const { isAuthenticated, isLoaded } = useAuth();
+
+  // Optional loader handling
+  if (!isLoaded && isAuthenticated) return <LoginToUserLoadingPage />;
+
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
 }
 
+// ✅ Public route wrapper
 function PublicRoute({ children }: { children: JSX.Element }) {
-  const { name, isLoaded } = useSelector(
-    (state: RootState) => state.userGeneralSlice
-  );
-  const _condition =
-    name && namePredictionsCollections2.includes(name) && isLoaded;
-  if (_condition) {
-    return <Navigate to={"/user"} />;
-  }
-  return children;
+  const { isAuthenticated } = useAuth();
+
+  return isAuthenticated ? <Navigate to="/user" replace /> : children;
 }
 
+// ✅ Router setup
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <PublicRoute children={<LoginPage />} />,
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
   },
   {
     path: "/login",
-    element: <PublicRoute children={<LoginPage />} />,
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
   },
-  {
-    path: "/loading",
-    element: <PublicRoute children={<LoginToUserLoadingPage />} />,
-  },
-
   {
     path: "/user",
-    element: <PrivateRoute children={<UserHomeLandingPage />} />,
+    element: (
+      <PrivateRoute>
+        <UserPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "*",
-    element: <h1>Page Not Found </h1>,
+    element: <Error404Page />,
   },
 ]);
 
