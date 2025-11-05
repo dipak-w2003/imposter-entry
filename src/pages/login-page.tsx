@@ -29,10 +29,7 @@ import {
 import type { AppDispatch } from "../lib/store/store";
 import { useDispatch } from "react-redux";
 import { setName } from "../lib/store/user-general-slice";
-<<<<<<< HEAD
-=======
 import { useNavigate } from "react-router-dom";
->>>>>>> 9cd8a35 (Your message)
 
 // responsive is required hai
 function LoginPage() {
@@ -75,12 +72,10 @@ function LoginPage() {
     cat_frame18,
     cat_frame19,
   ];
-<<<<<<< HEAD
-=======
 
   const navigate = useNavigate();
   // navigation added
->>>>>>> 9cd8a35 (Your message)
+
   const dispatch: AppDispatch = useDispatch();
   // Choose current cat frame
   const currentFrame = useMemo(() => {
@@ -108,12 +103,10 @@ function LoginPage() {
     // if (_name.length! > 0) return;
     if (namePredictionsCollections2.includes(_name.toLowerCase())) {
       dispatch(setName(_name));
-<<<<<<< HEAD
-=======
+
       //
       navigate("/user");
       return;
->>>>>>> 9cd8a35 (Your message)
     } else {
       dispatch(setName(""));
     }
@@ -122,11 +115,8 @@ function LoginPage() {
     <main className="flex flex-col justify-center items-center h-dvh bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200 overflow-hidden">
       <section
         className="flex flex-col  justify-center items-center relative overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]
-<<<<<<< HEAD
         h-[605px] w-[450px]
-=======
-        h-[605px] w-[400px]
->>>>>>> 9cd8a35 (Your message)
+
         sm:h-[600px] sm:w-[600px]
       "
       >
