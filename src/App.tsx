@@ -28,7 +28,6 @@ function PrivateRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated, isLoaded } = useAuth();
 
   // Optional loader handling
-  if (!isAuthenticated) return <LoginToUserLoadingPage />;
   if (!isLoaded && isAuthenticated) return <LoginToUserLoadingPage />;
 
   return isAuthenticated ? children : <Navigate to="/login" replace />;
