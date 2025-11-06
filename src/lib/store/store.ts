@@ -1,12 +1,26 @@
-import { configureStore } from '@reduxjs/toolkit'
-import userGeneralSlice from "./user-general-slice"
-export const store = configureStore({
-  reducer: {
-    userGeneralSlice: userGeneralSlice
-  },
-})
+// store.ts
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import userGeneralSlice from "./user-general-slice";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["userGeneralSlice"],
+};
+
+const rootReducer = combineReducers({
+  userGeneralSlice,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export const persistor = persistStore(store); 

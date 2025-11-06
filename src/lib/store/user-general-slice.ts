@@ -6,18 +6,13 @@ interface IUserGeneral {
   isLogout: boolean
 }
 
-// Get stored data safely
-const nameFromStorage = localStorage.getItem("user_info") ?? ""
-const isLogoutFromStorage = localStorage.getItem("user_isLogout")
 
 // Parse safely (in case it's not JSON)
-const parsedIsLogout =
-  isLogoutFromStorage !== null ? JSON.parse(isLogoutFromStorage) : false
 
 const initialState: IUserGeneral = {
-  name: nameFromStorage,
-  isLoaded: false, // since you’re loading from localStorage
-  isLogout: parsedIsLogout,
+  name: "",
+  isLoaded: false,
+  isLogout: true,
 }
 
 const userGeneralSlice = createSlice({
@@ -28,12 +23,10 @@ const userGeneralSlice = createSlice({
       const _name = action.payload.trim()
       if (_name.length === 0) return
       state.name = _name
-      localStorage.setItem("user_info", _name)
     },
     setIsLogout(state, action: PayloadAction<boolean>) {
       const _booleanState = action.payload
       state.isLogout = _booleanState
-      localStorage.setItem("user_isLogout", JSON.stringify(_booleanState))
     },
 
     setIsLoaded(state, action: PayloadAction<boolean>) {

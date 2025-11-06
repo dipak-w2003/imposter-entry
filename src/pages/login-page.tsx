@@ -103,7 +103,7 @@ function LoginPage() {
     // if (_name.length! > 0) return;
     if (namePredictionsCollections2.includes(_name.toLowerCase())) {
       dispatch(setName(_name));
-      navigate("/user-loading");
+      navigate("/user");
       return;
     } else {
       dispatch(setName(""));
