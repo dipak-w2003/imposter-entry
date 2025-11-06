@@ -20,7 +20,6 @@ const LoginToUserLoadingPage = () => {
     const timer = setTimeout(() => {
       const isKnownUser =
         nameState && namePredictionsCollections2.includes(nameState);
-
       if (isKnownUser) {
         dispatch(setIsLoaded(true));
         navigate("/user");

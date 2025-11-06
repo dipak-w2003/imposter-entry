@@ -13,7 +13,6 @@ import { namePredictionsCollections2 } from "./lib/constants/constants";
 import Error404Page from "./pages/error-404-page";
 import UserPage from "./pages/user-page";
 
-// ✅ Helper hook for cleaner logic reuse
 function useAuth() {
   const { name, isLoaded } = useSelector(
     (state: RootState) => state.userGeneralSlice
@@ -23,12 +22,11 @@ function useAuth() {
   return { isAuthenticated, isLoaded };
 }
 
-// ✅ Private route wrapper
 function PrivateRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated, isLoaded } = useAuth();
 
   // Optional loader handling
-  if (!isLoaded && isAuthenticated) return <LoginToUserLoadingPage />;
+  if (!isLoaded) return <LoginToUserLoadingPage />;
 
   return isAuthenticated ? children : <Navigate to="/login" replace />;
 }
@@ -49,6 +47,10 @@ export const router = createBrowserRouter([
         <LoginPage />
       </PublicRoute>
     ),
+  },
+  {
+    path: "/user-loading",
+    element: <LoginToUserLoadingPage />,
   },
   {
     path: "/login",

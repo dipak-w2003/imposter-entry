@@ -103,9 +103,7 @@ function LoginPage() {
     // if (_name.length! > 0) return;
     if (namePredictionsCollections2.includes(_name.toLowerCase())) {
       dispatch(setName(_name));
-
-      //
-      navigate("/user");
+      navigate("/user-loading");
       return;
     } else {
       dispatch(setName(""));
@@ -116,7 +114,6 @@ function LoginPage() {
       <section
         className="flex flex-col  justify-center items-center relative overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]
         h-[605px] w-[450px]
-
         sm:h-[600px] sm:w-[600px]
       "
       >
