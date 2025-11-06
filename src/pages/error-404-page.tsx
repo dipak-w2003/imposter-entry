@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Lottie from "lottie-react";
+import WorldCupAnimation_JSON from "../assets/animations/WorldCup!.json";
 const Error404Page: React.FC = () => {
   return (
     <>
       <div className="text-center min-h-screen flex flex-col justify-center items-center animate-fadeIn p-4">
-        <img
-          src="https://yemca-services.net/404.png"
-          alt="404 Illustration"
-          className="mx-auto w-80 animate-[float_3s_infinite] shadow-xl rounded-lg"
-        />
+        <span className="wrapper-error-page-animation-lottie">
+          <Lottie animationData={WorldCupAnimation_JSON} />
+        </span>
         <h1 className="text-5xl md:text-7xl font-extrabold text-blue-700 mt-6">
           Looks Like You're Lost!
         </h1>

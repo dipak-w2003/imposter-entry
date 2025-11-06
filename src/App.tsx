@@ -1,26 +1,21 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/login-page";
 import UserPage from "./pages/user-page";
 import Error404Page from "./pages/error-404-page";
-import { namePredictionsCollections2 } from "./lib/constants/constants";
-import { useSelector } from "react-redux";
-import type { RootState } from "./lib/store/store";
-import type { JSX } from "react";
+// import { namePredictionsCollections2 } from "./lib/constants/constants";
+// import { useSelector } from "react-redux";
+// import type { RootState } from "./lib/store/store";
 
 // ------------------
 // Hook to check auth
 // ------------------
-function useAuth() {
-  const { name, isLoaded } = useSelector(
-    (state: RootState) => state.userGeneralSlice
-  );
-  const isAuthenticated = name && namePredictionsCollections2.includes(name);
-  return { isAuthenticated, isLoaded };
-}
+// function useAuth() {
+//   const { name, isLoaded } = useSelector(
+//     (state: RootState) => state.userGeneralSlice
+//   );
+//   const isAuthenticated = name && namePredictionsCollections2.includes(name);
+//   return { isAuthenticated, isLoaded };
+// }
 
 // ------------------
 // Private route

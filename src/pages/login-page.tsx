@@ -89,6 +89,7 @@ function LoginPage() {
     cat_frame2,
     cat_frame3,
     cat_frame4,
+    cat_frame5,
   ];
 
   const randomSadExpressions = [cat_frame6, cat_frame7, cat_frame9];

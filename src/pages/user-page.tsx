@@ -5,7 +5,7 @@ import LoginToUserLoadingPage from "./login-to-user-loading-page";
 import UserHomePage from "./user-home-1-page";
 
 const UserPage = () => {
-  const { name: _name_user, isLoaded } = useSelector(
+  const { name: _name_user } = useSelector(
     (state: RootState) => state.userGeneralSlice
   );
   const [showFallback, setShowFallback] = useState(true);
