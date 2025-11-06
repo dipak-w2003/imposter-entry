@@ -1,9 +1,14 @@
 # 🎂 React Birthday Wish Project — Full Concept Notes
+
 # 🧠 Project Title:
+
 - “Interactive Birthday Experience”
 - A React-based, mobile-optimized web app that wishes Happy Birthday in a fun, emotional, and interactive way.
+
 # LINK : [Fucking_Link](https://creator.lottiefiles.com/?fileId=40c704cd-f2ce-4fea-ae22-72a87c059f50)
+
 # ⚙️ Tech Stack
+
 - Framework: React (Vite)
 - Styling: Tailwind CSS (glassmorphism + gradient backgrounds)
 - Animation: Framer Motion + Lottie React + AOS
@@ -19,16 +24,18 @@
   - Input: “What’s your name?”
   - Input: “Are you excited?”
 - A cute 2D cat character reacts dynamically:
+
   - correct-name → 😺 happy (sparkles)
   - wrong-name → 🐱 confused (staring)
   - excited: true → 🥳 dancing cat
   - excited: false → 😿 crying cat
 
 - Submit button (“Let’s Begin 🎁”) enabled only when:
-  -  name === her real name
+  - name === her real name
   - excited === true
 
 # Tech:
+
 - Lottie React animations (4–5 JSON cats)
 - useState for form + animation control
 - Framer Motion for fade-ins & smooth cat transitions
@@ -44,12 +51,14 @@
 - User Interactive visuals characters : [Concept](https://i.pinimg.com/736x/cf/f6/b3/cff6b3e62a404dbb42f309883c5c1147.jpg)
 
 # Visuals:
+
 - Bells swinging
 - Firecrackers or confetti bursts
 - Gradient background with subtle motion
 - Floating balloons or hearts using motion.div infinite loop
 
 # 3️⃣ Scroll / Story Message Page
+
 - Each scroll or swipe reveals a message line:
 - “You make the world brighter ✨”
 - “You bring calm even in chaos 🌸”
@@ -83,5 +92,3 @@ Message:
 - Optional: Background Lottie animation (balloons rising)
 
 - Button: “Tap to see a surprise” → reveals glowing heart or photo
-
-

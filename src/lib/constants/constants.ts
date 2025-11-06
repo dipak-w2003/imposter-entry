@@ -23,4 +23,5 @@ export const namePredictionsCollections2 = [
   "unisha tama",
   "unisha taman",
   "unisha tamang",
+  "unisha tamang",
 ]

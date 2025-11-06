@@ -1,71 +1,63 @@
-import type { JSX } from "react";
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+import LoginPage from "./pages/login-page";
+import UserPage from "./pages/user-page";
+import Error404Page from "./pages/error-404-page";
+import { namePredictionsCollections2 } from "./lib/constants/constants";
 import { useSelector } from "react-redux";
 import type { RootState } from "./lib/store/store";
+import type { JSX } from "react";
 
-import LoginPage from "./pages/login-page";
-import LoginToUserLoadingPage from "./pages/login-to-user-loading-page";
-import { namePredictionsCollections2 } from "./lib/constants/constants";
-import Error404Page from "./pages/error-404-page";
-import UserPage from "./pages/user-page";
-
+// ------------------
+// Hook to check auth
+// ------------------
 function useAuth() {
   const { name, isLoaded } = useSelector(
     (state: RootState) => state.userGeneralSlice
   );
-  const isAuthenticated =
-    !!name && namePredictionsCollections2.includes(name ?? "");
+  const isAuthenticated = name && namePredictionsCollections2.includes(name);
   return { isAuthenticated, isLoaded };
 }
 
-function PrivateRoute({ children }: { children: JSX.Element }) {
-  const { isAuthenticated } = useAuth();
+// ------------------
+// Private route
+// ------------------
+// function PrivateRoute({ children }: { children: JSX.Element }) {
+//   const { name, isLoaded } = useSelector(
+//     (state: RootState) => state.userGeneralSlice
+//   );
+//   const { isAuthenticated } = useAuth();
+//   alert(`PrivateRoute: {${name}, ${isLoaded}, isAuthenticated }`);
 
-  // Optional loader handling
+//   return isAuthenticated ? children : <Navigate to="/login" />;
+// }
 
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
-}
+// ------------------
+// Public route
+// ------------------
+// function PublicRoute({ children }: { children: JSX.Element }) {
+//   const { isAuthenticated } = useAuth();
+//   return isAuthenticated ? <Navigate to="/user" /> : children;
+// }
 
-// ✅ Public route wrapper
-function PublicRoute({ children }: { children: JSX.Element }) {
-  const { isAuthenticated } = useAuth();
-
-  return isAuthenticated ? <Navigate to="/user" replace /> : children;
-}
-
-// ✅ Router setup
+// ------------------
+// Router setup
+// ------------------
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <PublicRoute>
-        <LoginPage />
-      </PublicRoute>
-    ),
-  },
-  {
-    path: "/user-loading",
-    element: <LoginToUserLoadingPage />,
+    element: <LoginPage />,
   },
   {
     path: "/login",
-    element: (
-      <PublicRoute>
-        <LoginPage />
-      </PublicRoute>
-    ),
+    element: <LoginPage />,
   },
   {
     path: "/user",
-    element: (
-      <PrivateRoute>
-        <UserPage />
-      </PrivateRoute>
-    ),
+    element: <UserPage />,
   },
   {
     path: "*",
@@ -73,6 +65,9 @@ export const router = createBrowserRouter([
   },
 ]);
 
+// ------------------
+// App entry
+// ------------------
 export default function App() {
   return <RouterProvider router={router} />;
 }

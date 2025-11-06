@@ -5,8 +5,8 @@ import LoginToUserLoadingPage from "./login-to-user-loading-page";
 import UserHomePage from "./user-home-1-page";
 
 const UserPage = () => {
-  const isLoaded = useSelector(
-    (state: RootState) => state.userGeneralSlice.isLoaded
+  const { name: _name_user, isLoaded } = useSelector(
+    (state: RootState) => state.userGeneralSlice
   );
   const [showFallback, setShowFallback] = useState(true);
 
@@ -19,7 +19,7 @@ const UserPage = () => {
     return <LoginToUserLoadingPage />;
   }
 
-  return isLoaded ? <UserHomePage /> : <LoginToUserLoadingPage />;
+  return <UserHomePage />;
 };
 
 export default UserPage;
