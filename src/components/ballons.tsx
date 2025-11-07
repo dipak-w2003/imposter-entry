@@ -10,12 +10,16 @@ const Ballons = ({
   tailwindCSS?: string;
 }) => {
   return (
-    <main className={`absolute  ${tailwindCSS} overflow-hidden`}>
+    <main
+      className={`absolute  ${tailwindCSS} overflow-hidden`}
+      draggable={false}
+    >
       {/* Left Balloon */}
       <motion.img
+        draggable={false}
         src={ballonLeftSVG}
-        alt="balloon-left"
         initial={{ y: 200, opacity: 0, scale: 0.8 }}
+        alt="balloon-left"
         animate={{
           y: [0, -15, 0],
           opacity: 1,
@@ -32,11 +36,12 @@ const Ballons = ({
             ease: "easeInOut",
           },
         }}
-        className="w-1/3 md:w-1/4 drop-shadow-xl  mt-32 ml-10"
+        className="w-1/3 md:w-1/4 drop-shadow-xl   sm:mt-32 sm:ml-10"
       />
 
       {/* Right Balloon */}
       <motion.img
+        draggable={false}
         src={ballonRightSVG}
         alt="balloon-right"
         initial={{ y: 250, opacity: 0, scale: 0.8 }}
@@ -56,7 +61,7 @@ const Ballons = ({
             ease: "easeInOut",
           },
         }}
-        className="w-1/3 md:w-1/4 drop-shadow-xl  mt-32 mr-10"
+        className="w-1/3 md:w-1/4 drop-shadow-xl  sm:mt-32 sm:mr-10"
       />
     </main>
   );

@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 // Lazy load Lottie
 const Lottie = lazy(() => import("lottie-react"));
-import ConfettiFireWorksAnimation_JSON from "../assets/animations/Confettiwithfireworks.json";
+import HangingStarDecorationAnimation_JSON from "../assets/animations/HangingStarDecoration.json";
 
-interface FireWorksProps {
+interface HangingDecorationProps {
   tailwindCSS?: string;
   loop?: boolean;
 }
@@ -15,10 +15,10 @@ const FallbackFireWorks = ({ tailwindCSS }: { tailwindCSS?: string }) => (
   <div className={`${tailwindCSS} bg-yellow-200 animate-pulse rounded-full`} />
 );
 
-const ConfettiFireWorks = ({
+const HangingStarDecoration = ({
   tailwindCSS = "h-[400px] w-[400px]",
   loop = false,
-}: FireWorksProps) => {
+}: HangingDecorationProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -28,16 +28,15 @@ const ConfettiFireWorks = ({
     >
       <Suspense fallback={<FallbackFireWorks tailwindCSS={tailwindCSS} />}>
         <Lottie
-          animationData={ConfettiFireWorksAnimation_JSON}
+          animationData={HangingStarDecorationAnimation_JSON}
           loop={loop}
           autoplay
           draggable={false}
           {...({ renderer: "canvas" } as any)} // TypeScript-safe canvas renderer
-          className=""
         />
       </Suspense>
     </motion.div>
   );
 };
 
-export default ConfettiFireWorks;
+export default HangingStarDecoration;

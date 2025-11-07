@@ -4,37 +4,35 @@ import Cake from "../components/cake";
 import Gifts from "../components/gifts";
 import Ballons from "../components/ballons";
 import ConfettiFireWorks from "../components/confetti-with-fireworks";
+import HangingStarDecoration from "../components/hanging-star-decoration";
 const UserHomePage = () => {
   return (
     <main className="relative h-dvh w-dvw flex justify-center items-center overflow-hidden bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200 -z-10">
       {/* Confetti */}
-
       {/* Cake */}
-      <Cake tailwindCSS=" absolute bottom-10 h-[300px] w-[300px]  sm:h-[350px] sm:w-[350px] z-2 " />
-
+      <Cake tailwindCSS=" absolute bottom-2 sm:bottom-10  w-[400px]  sm:w-[350px] z-2 " />
+      {/* HangingStarDecoration  */}
+      <HangingStarDecoration
+        loop={true}
+        tailwindCSS=" overflow-hidden absolute top-0   sm:left-0  sm:top-0  w-[400px]  sm:w-[350px] -z-2 "
+      />{" "}
       {/* Gifts */}
+      <Gifts tailwindCSS="top-1/2  sm:top-2/3  sm:bottom-0 -right-8 sm:right-0 absolute w-[260px] sm:w-[400px] z-1" />
       <Gifts
-        tailwindCSS=" top-2/3 sm:bottom-0 -right-8 sm:right-0 absolute h-[200px] w-[180px] sm:h-[2
-      400px] sm:w-[400px] z-1"
-      />
-      <Gifts
-        tailwindCSS=" top-2/3  sm:bottom-0 -left-8 sm:left-0 absolute h-[200px] w-[180px] sm:h-[2
+        tailwindCSS=" top-1/2  sm:top-2/3  sm:bottom-0 -left-8 sm:left-0 absolute  w-[260px] sm:h-[2
       400px] sm:w-[400px] z-1 "
       />
-
       {/* Ballons */}
-      <Ballons tailwindCSS="absolute bottom-0 h-full w-full flex justify-between items-center -z-1  *:w-[300px]" />
-
+      <Ballons tailwindCSS="absolute bottom-0 h-full w-full flex justify-around sm:justify-between sm:gap-2 items-center -z-1  *:sm:w-[300px]" />
       {/*Birthday Confetti Ballons*/}
       <ConfettiFireWorks
         loop={true}
-        tailwindCSS="absolute bottom-0 h-dvh w-dvw -z-2  "
+        tailwindCSS="absolute *:w-dvw *:h-full  bottom-0 h-dvh w-dvw -z-2  "
       />
-
       {/* FireWorks */}
       {/* <SesonalFireWorks tailwindCSS=" bottom-1/2 w-[200vw]   sm:bottom-0 left-0 absolute sm:h-dvh sm:w-dvw z-1" /> */}
       {/* ................... */}
-      <div className="wishes absolute top-12 flex flex-col items-center gap-1 text-pink-500 font-extrabold text-5xl sm:text-6xl wish-heading">
+      <div className="wishes absolute top-1/6 flex flex-col items-center gap-1 text-pink-500 font-extrabold text-[30vw] sm:text-6xl wish-heading">
         <motion.h2
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
