@@ -1,26 +1,24 @@
 import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 
-// Lazy load Lottie for performance
+// Lazy load Lottie
 const Lottie = lazy(() => import("lottie-react"));
-import SeasonalFireworksAnimation_JSON from "../assets/animations/SeasonFireworks.json";
+import ConfettiFireWorksAnimation_JSON from "../assets/animations/Confettiwithfireworks.json";
 
-interface FireworksProps {
+interface FireWorksProps {
   tailwindCSS?: string;
   loop?: boolean;
 }
 
 // Lightweight placeholder while Lottie loads
-const FallbackFireworks = ({ tailwindCSS }: { tailwindCSS?: string }) => (
-  <div
-    className={`${tailwindCSS} bg-gradient-to-br from-purple-200 via-yellow-100 to-pink-200 animate-pulse rounded-full`}
-  />
+const FallbackFireWorks = ({ tailwindCSS }: { tailwindCSS?: string }) => (
+  <div className={`${tailwindCSS} bg-yellow-200 animate-pulse rounded-full`} />
 );
 
-const SesonalFireWorks = ({
+const ConfettiFireWorks = ({
   tailwindCSS = "h-[400px] w-[400px]",
-  loop = true,
-}: FireworksProps) => {
+  loop = false,
+}: FireWorksProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -28,9 +26,9 @@ const SesonalFireWorks = ({
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`${tailwindCSS}`}
     >
-      <Suspense fallback={<FallbackFireworks tailwindCSS={tailwindCSS} />}>
+      <Suspense fallback={<FallbackFireWorks tailwindCSS={tailwindCSS} />}>
         <Lottie
-          animationData={SeasonalFireworksAnimation_JSON}
+          animationData={ConfettiFireWorksAnimation_JSON}
           loop={loop}
           autoplay
           draggable={false}
@@ -41,4 +39,4 @@ const SesonalFireWorks = ({
   );
 };
 
-export default SesonalFireWorks;
+export default ConfettiFireWorks;

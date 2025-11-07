@@ -17,7 +17,7 @@ const FallbackCake = ({ tailwindCSS }: { tailwindCSS?: string }) => (
 
 const Cake = ({
   tailwindCSS = "h-[400px] w-[400px]",
-  loop = true,
+  loop = false,
 }: CakeProps) => {
   return (
     <motion.div

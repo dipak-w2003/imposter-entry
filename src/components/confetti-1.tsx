@@ -32,9 +32,9 @@ const Confetti1 = ({
       <Suspense fallback={<FallbackConfetti tailwindCSS={tailwindCSS} />}>
         <Lottie
           animationData={ConfettiAnimation_JSON}
-          loop={loop}
           autoplay
           draggable={false}
+          loop={loop}
           {...({ renderer: "canvas" } as any)} // TypeScript-safe canvas renderer
         />
       </Suspense>

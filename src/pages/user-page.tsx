@@ -6,7 +6,7 @@ import UserHomePage from "./user-home-page";
 
 const UserPage = () => {
   const { name: _name_user } = useSelector(
-    (state: RootState) => state.userGeneralSlice
+    (state: RootState) => state.userGeneralSlice,
   );
   const [showFallback, setShowFallback] = useState(true);
 

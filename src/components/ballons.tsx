@@ -1,0 +1,65 @@
+import { motion } from "framer-motion";
+import {
+  ballonLeftSVG,
+  ballonRightSVG,
+} from "../assets/svg/birthday-celebration-items/birthday-celebrations-items-collections";
+
+const Ballons = ({
+  tailwindCSS = "h-full w-full",
+}: {
+  tailwindCSS?: string;
+}) => {
+  return (
+    <main className={`absolute  ${tailwindCSS} overflow-hidden`}>
+      {/* Left Balloon */}
+      <motion.img
+        src={ballonLeftSVG}
+        alt="balloon-left"
+        initial={{ y: 200, opacity: 0, scale: 0.8 }}
+        animate={{
+          y: [0, -15, 0],
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1.2,
+          delay: 0.2,
+          ease: "easeOut",
+          y: {
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
+          },
+        }}
+        className="w-1/3 md:w-1/4 drop-shadow-xl  mt-32 ml-10"
+      />
+
+      {/* Right Balloon */}
+      <motion.img
+        src={ballonRightSVG}
+        alt="balloon-right"
+        initial={{ y: 250, opacity: 0, scale: 0.8 }}
+        animate={{
+          y: [0, -10, 0],
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1.2,
+          delay: 0.6,
+          ease: "easeOut",
+          y: {
+            duration: 2.5,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
+          },
+        }}
+        className="w-1/3 md:w-1/4 drop-shadow-xl  mt-32 mr-10"
+      />
+    </main>
+  );
+};
+
+export default Ballons;
