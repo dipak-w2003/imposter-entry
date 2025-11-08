@@ -1,74 +1,74 @@
 @import "tailwindcss";
 /* 🌈 Import all impressive cursive fonts */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster+Two:wght@700&family=Dancing+Script:wght@600&family=Great+Vibes&family=Caveat:wght@600&family=Satisfy&family=Allura&family=Parisienne&family=Cookie&display=swap");
-*::selection {
+/* *::selection {
     background: transparent;
 }
 :has(*)::selection {
     background: transparent;
-}
+} */
 
 /* 🌍 Base setup */
 body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(to bottom right, #fffafc, #fff0f6);
-    color: #333;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #fffafc, #fff0f6);
+  color: #333;
 }
 
 /* 🎂 Headline for big celebrations */
 .wish-heading {
-    font-family: "Great Vibes", cursive;
-    font-size: 4rem;
-    color: #e91e63;
-    text-shadow: 2px 3px 8px rgba(233, 30, 99, 0.3);
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  color: #e91e63;
+  text-shadow: 2px 3px 8px rgba(233, 30, 99, 0.3);
 }
 
 /* 🎉 Surprise, party, or fun titles */
 .fun-heading {
-    font-family: "Pacifico", cursive;
-    font-size: 3.5rem;
-    color: #ff4081;
-    text-shadow: 1px 2px 5px rgba(255, 105, 180, 0.4);
+  font-family: "Pacifico", cursive;
+  font-size: 3.5rem;
+  color: #ff4081;
+  text-shadow: 1px 2px 5px rgba(255, 105, 180, 0.4);
 }
 
 /* 💌 Romantic or heartfelt message */
 .romantic-message {
-    font-family: "Dancing Script", cursive;
-    font-size: 2rem;
-    color: #ad1457;
-    line-height: 1.6;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  color: #ad1457;
+  line-height: 1.6;
 }
 
 /* 💫 Handwritten wish (personal style) */
 .handwritten {
-    font-family: "Caveat", cursive;
-    font-size: 1.8rem;
-    color: #6a1b9a;
+  font-family: "Caveat", cursive;
+  font-size: 1.8rem;
+  color: #6a1b9a;
 }
 
 /* 💎 Luxury or elegant note */
 .elegant {
-    font-family: "Parisienne", cursive;
-    font-size: 2.2rem;
-    color: #9c27b0;
-    letter-spacing: 1px;
+  font-family: "Parisienne", cursive;
+  font-size: 2.2rem;
+  color: #9c27b0;
+  letter-spacing: 1px;
 }
 
 /* 🧁 Classy thank-you or sweet notes */
 .cookie-style {
-    font-family: "Cookie", cursive;
-    font-size: 2rem;
-    color: #f06292;
+  font-family: "Cookie", cursive;
+  font-size: 2rem;
+  color: #f06292;
 }
 
 /* 🌟 Simple script with modern feel */
 .satisfy-style {
-    font-family: "Satisfy", cursive;
-    font-size: 2rem;
-    color: #ec407a;
+  font-family: "Satisfy", cursive;
+  font-size: 2rem;
+  color: #ec407a;
 }
 
 *:has(h1, h2, h3, h4, h5, h6, p, i, header)::selection {
-    background: cyan;
-    color: whirgb(0, 0, 0);
+  background: cyan;
+  color: whirgb(0, 0, 0);
 }
