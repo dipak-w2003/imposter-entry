@@ -1,23 +1,17 @@
 import { motion } from "framer-motion";
-import {
-  ballonLeftSVG,
-  ballonRightSVG,
-} from "../assets/svg/birthday-celebration-items/birthday-celebrations-items-collections";
 
-const Ballons = ({
-  tailwindCSS = "h-full w-full",
-}: {
-  tailwindCSS?: string;
-}) => {
+const Ballons = ({ className = "h-full w-full" }: { className?: string }) => {
   return (
     <main
-      className={`absolute  ${tailwindCSS} overflow-hidden`}
+      className={`absolute  ${className} overflow-hidden`}
       draggable={false}
     >
       {/* Left Balloon */}
       <motion.img
         draggable={false}
-        src={ballonLeftSVG}
+        src={
+          "https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/svgs/birthday-celebration-items/left-s-ballons.svg"
+        }
         initial={{ y: 200, opacity: 0, scale: 0.8 }}
         alt="balloon-left"
         animate={{
@@ -42,7 +36,9 @@ const Ballons = ({
       {/* Right Balloon */}
       <motion.img
         draggable={false}
-        src={ballonRightSVG}
+        src={
+          "https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/svgs/birthday-celebration-items/right-s-ballons.svg"
+        }
         alt="balloon-right"
         initial={{ y: 250, opacity: 0, scale: 0.8 }}
         animate={{

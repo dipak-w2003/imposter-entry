@@ -1,22 +1,21 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { motion } from "framer-motion";
+import LottieAnimationProvider from "./lottie-animation-provider";
 
 // Lazy load Lottie
-const Lottie = lazy(() => import("lottie-react"));
-import ConfettiFireWorksAnimation_JSON from "../assets/animations/Confettiwithfireworks.json";
 
 interface FireWorksProps {
-  tailwindCSS?: string;
+  className?: string;
   loop?: boolean;
 }
 
 // Lightweight placeholder while Lottie loads
-const FallbackFireWorks = ({ tailwindCSS }: { tailwindCSS?: string }) => (
-  <div className={`${tailwindCSS} bg-yellow-200 animate-pulse rounded-full`} />
+const FallbackFireWorks = ({ className }: { className?: string }) => (
+  <div className={`${className} bg-yellow-200 animate-pulse rounded-full`} />
 );
 
 const ConfettiFireWorks = ({
-  tailwindCSS = "h-[400px] w-[400px]",
+  className = "h-[400px] w-[400px]",
   loop = false,
 }: FireWorksProps) => {
   return (
@@ -24,16 +23,12 @@ const ConfettiFireWorks = ({
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`${tailwindCSS}`}
+      className={className}
     >
-      <Suspense fallback={<FallbackFireWorks tailwindCSS={tailwindCSS} />}>
-        <Lottie
-          animationData={ConfettiFireWorksAnimation_JSON}
+      <Suspense fallback={<FallbackFireWorks className={className} />}>
+        <LottieAnimationProvider
+          url="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/lottie-json-animations/confetti-with-fireworks.json"
           loop={loop}
-          autoplay
-          draggable={false}
-          {...({ renderer: "canvas" } as any)} // TypeScript-safe canvas renderer
-          className=""
         />
       </Suspense>
     </motion.div>

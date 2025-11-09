@@ -1,19 +1,12 @@
 import { useMemo, useState, type ChangeEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  cat_frame1,
-  cat_frame2,
-  cat_frame3,
-  cat_frame4,
-  cat_frame5,
-  cat_frame6,
-  cat_frame7,
-  cat_frame9,
-} from "../assets/svg/meow-expressions/meow-expressions-collection";
 import { badGreetings, goodGreetings } from "../lib/constants/greetings";
 import {
+  expression_HASH,
   namePredictionsCollections,
   namePredictionsCollections2,
+  randomSadExpressions,
+  randomSmileyExpressions,
 } from "../lib/constants/constants";
 import type { AppDispatch, RootState } from "../lib/store/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,33 +60,6 @@ function LoginPage() {
 
   const dispatch: AppDispatch = useDispatch();
 
-  // Hash of cat expressions for specific names
-  const expression_HASH: Record<string, string> = {
-    u: cat_frame1,
-    un: cat_frame2,
-    uni: cat_frame3,
-    unis: cat_frame4,
-    unish: cat_frame2,
-    unisha: cat_frame3,
-    "unisha ": cat_frame1,
-    "unisha t": cat_frame3,
-    "unisha ta": cat_frame2,
-    "unisha tam": cat_frame4,
-    "unisha tama": cat_frame3,
-    "unisha taman": cat_frame2,
-    "unisha tamang": cat_frame4,
-  };
-
-  const randomSmileyExpressions = [
-    cat_frame1,
-    cat_frame2,
-    cat_frame3,
-    cat_frame4,
-    cat_frame5,
-  ];
-
-  const randomSadExpressions = [cat_frame6, cat_frame7, cat_frame9];
-
   // Choose current cat frame
   const currentFrame = useMemo(() => {
     const matched = expression_HASH[username.trim().toLowerCase()];
@@ -105,7 +71,10 @@ function LoginPage() {
     }
 
     const randomIndex = Math.floor(Math.random() * randomSadExpressions.length);
-    return randomSadExpressions[randomIndex] || cat_frame9;
+    return (
+      randomSadExpressions[randomIndex] ||
+      "https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/svgs/meow-expressions/frame-9.svg"
+    );
   }, [username]);
 
   // Handle input change
@@ -128,9 +97,9 @@ function LoginPage() {
   };
 
   return (
-    <main className="flex flex-col justify-center items-center h-dvh bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200 overflow-hidden">
+    <main className="relative flex flex-col justify-center items-center h-dvh w-dvw bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200">
       <section
-        className="flex flex-col justify-center items-center relative overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]
+        className="flex flex-col justify-center items-center relative  rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]
         h-[500px] w-[380px] sm:h-[600px] sm:w-[600px]"
       >
         {/* 🐱 Cat Expression */}

@@ -1,34 +1,30 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { motion } from "framer-motion";
 
 // Lazy load Lottie for performance
-const Lottie = lazy(() => import("lottie-react"));
-import GiftsAnimation_JSON from "../assets/animations/JumpingGiftBoxes.json";
+import LottieAnimationProvider from "./lottie-animation-provider";
 
 interface GiftsProps {
-  tailwindCSS?: string;
+  className?: string;
 }
 
 // Lightweight placeholder while Lottie loads
-const FallbackGift = ({ tailwindCSS }: { tailwindCSS?: string }) => (
-  <div className={`${tailwindCSS} bg-yellow-200 rounded-md animate-pulse`} />
+const FallbackGift = ({ className }: { className?: string }) => (
+  <div className={`${className} bg-yellow-200 rounded-md animate-pulse`} />
 );
 
-const Gifts = ({ tailwindCSS = "h-[400px] w-[400px]" }: GiftsProps) => {
+const Gifts = ({ className }: GiftsProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`${tailwindCSS}`}
+      className={`${className}`}
     >
-      <Suspense fallback={<FallbackGift tailwindCSS={tailwindCSS} />}>
-        <Lottie
-          animationData={GiftsAnimation_JSON}
+      <Suspense fallback={<FallbackGift className={className} />}>
+        <LottieAnimationProvider
+          url="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/lottie-json-animations/jumping-gifts-boxes.json"
           loop
-          autoplay
-          draggable={false}
-          {...({ renderer: "canvas" } as any)} // TypeScript-safe canvas renderer
         />
       </Suspense>
     </motion.div>

@@ -1,38 +1,31 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { motion } from "framer-motion";
 
 // Lazy load Lottie
-const Lottie = lazy(() => import("lottie-react"));
-import HangingStarDecorationAnimation_JSON from "../assets/animations/HangingStarDecoration.json";
+import LottieAnimationProvider from "./lottie-animation-provider";
 
 interface HangingDecorationProps {
-  tailwindCSS?: string;
+  className?: string;
   loop?: boolean;
 }
 
 // Lightweight placeholder while Lottie loads
-const FallbackFireWorks = ({ tailwindCSS }: { tailwindCSS?: string }) => (
-  <div className={`${tailwindCSS} bg-yellow-200 animate-pulse rounded-full`} />
+const FallbackFireWorks = ({ className }: { className?: string }) => (
+  <div className={`${className} bg-yellow-200 animate-pulse rounded-full`} />
 );
 
-const HangingStarDecoration = ({
-  tailwindCSS = "h-[400px] w-[400px]",
-  loop = false,
-}: HangingDecorationProps) => {
+const HangingStarDecoration = ({ className, loop }: HangingDecorationProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`${tailwindCSS}`}
+      className={`${className}`}
     >
-      <Suspense fallback={<FallbackFireWorks tailwindCSS={tailwindCSS} />}>
-        <Lottie
-          animationData={HangingStarDecorationAnimation_JSON}
+      <Suspense fallback={<FallbackFireWorks className={className} />}>
+        <LottieAnimationProvider
           loop={loop}
-          autoplay
-          draggable={false}
-          {...({ renderer: "canvas" } as any)} // TypeScript-safe canvas renderer
+          url="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/lottie-json-animations/hanging-start-decoration.json"
         />
       </Suspense>
     </motion.div>
