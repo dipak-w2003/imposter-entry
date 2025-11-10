@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
+const RandomCanvaBirthdayItems = lazy(
+  () => import("../components/random-canva-birthday-images")
+);
+const ConfettiFireWorks = lazy(
+  () => import("../components/confetti-with-fireworks")
+);
 
-import Cake from "../components/cake";
-import Gifts from "../components/gifts";
-import Ballons from "../components/ballons";
-import ConfettiFireWorks from "../components/confetti-with-fireworks";
-import HangingStarDecoration from "../components/hanging-star-decoration";
+const HangingStarDecoration = lazy(
+  () => import("../components/hanging-star-decoration")
+);
 
 const UserHomePage = () => {
   const [openCurtain, setOpenCurtain] = useState(false);
@@ -21,11 +25,14 @@ const UserHomePage = () => {
   const handleMusicPlay = () => {
     if (!musicPlayed) {
       const music = new Howl({
-        src: ["/music/emotion-rhythm-music.mp3"],
+        src: [
+          "https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/music/emotion-rhythm-music.mp3?v=1",
+        ],
         volume: 0,
         loop: true,
         html5: true,
       });
+
       music.play();
       music.fade(0, 0.5, 4000); // smooth fade-in
       setBgMusic(music);
@@ -46,7 +53,7 @@ const UserHomePage = () => {
   };
 
   return (
-    <main className="relative h-dvh flex justify-center items-center m-0 p-0 overflow-hidden bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200">
+    <main className="relative h-dvh flex justify-center items-center overflow-hidden bg-[#434978]">
       {/* Curtain Button */}
       {!openCurtain && (
         <button
@@ -71,26 +78,23 @@ const UserHomePage = () => {
       {openCurtain && (
         <>
           {/* A Slider Contents Down Here SlideeContent[0] , thats the idea for now */}
-          <Cake className="absolute bottom-2 sm:bottom-10 w-[300px] sm:w-[350px] z-4" />
           <HangingStarDecoration
             loop
-            className="overflow-hidden absolute top-0 left-2 sm:left-0 sm:top-0 w-[200px] sm:w-[350px] z-1"
+            className="overflow-hidden absolute top-0 right-1/2 sm:right-1/4 sm:top-0 w-[150px] sm:w-[150px] z-0"
           />
-          <Gifts className="top-1/2 sm:top-2/3 sm:bottom-2 -right-8 sm:right-0 absolute w-[260px] sm:w-[400px] z-3" />
-          <Gifts className="top-1/2 sm:top-2/3 sm:bottom-0 -left-8 sm:left-0 absolute w-[260px] sm:w-[400px] z-3" />
-          <Ballons className="absolute bottom-0 h-full w-full flex justify-around sm:justify-between sm:gap-2 items-center z-2 *:sm:w-[300px]" />
           <ConfettiFireWorks
             loop
             className="absolute *:w-dvw *:h-full bottom-0 h-dvh w-dvw z-1"
           />
 
-          {/* Birthday Wishes */}
-          <div className="wishes absolute top-1/6 flex flex-col items-baseline gap-1 text-pink-500 font-extrabold text-[30vw] sm:text-6xl z-4 wish-heading ">
+          <RandomCanvaBirthdayItems />
+          {/* Other Contents */}
+          <div className="wishes absolute top-24 flex flex-col justify-around items-center gap-8 text-white font-extrabold text-[30vw]  z-4 wish-heading *:sm:text-7xl">
             <motion.h2
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="text-4xl sm:text-5xl relative z-2 items"
+              className=" sm:text-5xl relative z-2 items"
             >
               Happy Birthday
             </motion.h2>
@@ -98,15 +102,16 @@ const UserHomePage = () => {
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              className="text-[#e2bdd3]"
             >
-              Unisha Tamang
+              Unisha
             </motion.h2>
           </div>
           {/* Music Toggle Button */}
           {bgMusic && (
             <button
               onClick={toggleMusic}
-              className="absolute top-2 right-2 z-50 px-4 py-2 bg-pink-200 hover:bg-pink-300 rounded-lg text-xl transition-all"
+              className="absolute cursor-pointer  top-2 right-2 z-50 px-4 py-2 bg-[#e2bdd3] hover:bg-[#e2bdd3c8] rounded-lg text-xl transition-all"
             >
               {isPlaying ? "🎵" : "🔇"}
             </button>
@@ -118,3 +123,9 @@ const UserHomePage = () => {
 };
 
 export default UserHomePage;
+
+/**
+* 
+
+
+ */

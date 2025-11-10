@@ -25,7 +25,7 @@ const HangingStarDecoration = ({ className, loop }: HangingDecorationProps) => {
       <Suspense fallback={<FallbackFireWorks className={className} />}>
         <LottieAnimationProvider
           loop={loop}
-          url="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/lottie-json-animations/hanging-start-decoration.json"
+          url="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/lottie-json-animations/christmas-lights.json"
         />
       </Suspense>
     </motion.div>

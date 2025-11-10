@@ -1,0 +1,31 @@
+    <Cake className="absolute bottom-2 sm:bottom-10 w-[300px] sm:w-[350px] z-4" />
+            <HangingStarDecoration
+              loop
+              className="overflow-hidden absolute top-0 left-2 sm:left-0 sm:top-0 w-[200px] sm:w-[350px] z-1"
+            />
+            <Gifts className="top-1/2 sm:top-2/3 sm:bottom-2 -right-8 sm:right-0 absolute w-[260px] sm:w-[400px] z-3" />
+            <Gifts className="top-1/2 sm:top-2/3 sm:bottom-0 -left-8 sm:left-0 absolute w-[260px] sm:w-[400px] z-3" />
+            <Ballons className="absolute bottom-0 h-full w-full flex justify-around sm:justify-between sm:gap-2 items-center z-2 *:sm:w-[300px]" />
+            <ConfettiFireWorks
+              loop
+              className="absolute *:w-dvw *:h-full bottom-0 h-dvh w-dvw z-1"
+            />
+
+            {/* Birthday Wishes */}
+            <div className="wishes absolute top-1/6 flex flex-col items-baseline gap-1 text-pink-500 font-extrabold text-[30vw] sm:text-6xl z-4 wish-heading ">
+              <motion.h2
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                className="text-4xl sm:text-5xl relative z-2 items"
+              >
+                Happy Birthday
+              </motion.h2>
+              <motion.h2
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              >
+                Unisha Tamang
+              </motion.h2>
+            </div>

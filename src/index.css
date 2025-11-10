@@ -1,19 +1,27 @@
 @import "tailwindcss";
 /* 🌈 Import all impressive cursive fonts */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster+Two:wght@700&family=Dancing+Script:wght@600&family=Great+Vibes&family=Caveat:wght@600&family=Satisfy&family=Allura&family=Parisienne&family=Cookie&display=swap");
-/* *::selection {
-    background: transparent;
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+*::selection {
+  background: transparent;
 }
 :has(*)::selection {
-    background: transparent;
-} */
+  background: transparent;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* important to prevent horizontal scroll */
 }
-
+@font-face {
+  font-family: "Apricot";
+  src: url("https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/fonts/apricot-font.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 /* 🌍 Base setup */
 body {
   font-family: "Poppins", sans-serif;
@@ -23,25 +31,25 @@ body {
 
 /* 🎂 Headline for big celebrations */
 .wish-heading {
-  font-family: "Great Vibes", cursive;
+  font-family: "Apricot", cursive;
   font-size: 4rem;
-  color: #e91e63;
-  text-shadow: 2px 3px 8px rgba(233, 30, 99, 0.3);
+  /* color: #e2bdd3; */
+  /* text-shadow: 2px 3px 8px rgba(233, 30, 99, 0.3); */
 }
 
 /* 🎉 Surprise, party, or fun titles */
 .fun-heading {
   font-family: "Pacifico", cursive;
   font-size: 3.5rem;
-  color: #ff4081;
-  text-shadow: 1px 2px 5px rgba(255, 105, 180, 0.4);
+  /* color: #ff4081; */
+  /* text-shadow: 1px 2px 5px rgba(255, 105, 180, 0.4); */
 }
 
 /* 💌 Romantic or heartfelt message */
 .romantic-message {
   font-family: "Dancing Script", cursive;
   font-size: 2rem;
-  color: #ad1457;
+  /* color: #ad1457; */
   line-height: 1.6;
 }
 
@@ -56,7 +64,7 @@ body {
 .elegant {
   font-family: "Parisienne", cursive;
   font-size: 2.2rem;
-  color: #9c27b0;
+  /* color: #9c27b0; */
   letter-spacing: 1px;
 }
 
@@ -64,14 +72,14 @@ body {
 .cookie-style {
   font-family: "Cookie", cursive;
   font-size: 2rem;
-  color: #f06292;
+  /* color: #f06292; */
 }
 
 /* 🌟 Simple script with modern feel */
 .satisfy-style {
   font-family: "Satisfy", cursive;
   font-size: 2rem;
-  color: #ec407a;
+  /* color: #ec407a; */
 }
 
 *:has(h1, h2, h3, h4, h5, h6, p, i, header)::selection {
