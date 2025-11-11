@@ -53,20 +53,21 @@ const UserHomePage = () => {
   };
 
   return (
-    <main className="relative h-dvh flex justify-center items-center overflow-hidden bg-[#434978]">
+    <main className="relative h-dvh flex justify-center items-center overflow-hidden z-20">
       {/* Curtain Button */}
       {!openCurtain && (
         <button
           onClick={handleOpenCurtain}
-          className="absolute cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-pink-200 rounded-lg z-50 text-lg font-bold hover:bg-pink-300 transition-all"
+          className="absolute  flex justify-around items-center gap-2 cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-pink-200 rounded-lg z-999999999999 text-lg font-bold hover:bg-pink-300 transition-all"
         >
-          Welcome ,
+          <b className="text-2xl">Welcome</b>
+          <img src="/namaste-religion.svg" alt="" className="h-10" />
         </button>
       )}
 
       {/* Curtain Overlay */}
       <motion.div
-        className={`absolute top-0 left-0 h-full w-full bg-gradient-to-b from-pink-300 to-yellow-200 z-40 ${
+        className={`fixed top-0 left-0 h-full w-full bg-gradient-to-b from-pink-300 to-yellow-200 z-9999 ${
           openCurtain ? "pointer-events-none" : "pointer-events-auto"
         }`}
         animate={{ x: openCurtain ? "100%" : "0%" }}
@@ -80,7 +81,7 @@ const UserHomePage = () => {
           {/* A Slider Contents Down Here SlideeContent[0] , thats the idea for now */}
           <HangingStarDecoration
             loop
-            className="overflow-hidden absolute top-0 right-1/2 sm:right-1/4 sm:top-0 w-[150px] sm:w-[150px] z-0"
+            className="overflow-hidden fixed top-0 right-1/2 sm:right-1/4 sm:top-0 w-[150px] sm:w-[150px] z-50"
           />
           <ConfettiFireWorks
             loop
@@ -88,7 +89,6 @@ const UserHomePage = () => {
           />
 
           <RandomCanvaBirthdayItems />
-          {/* Other Contents */}
           <div className="wishes absolute top-24 flex flex-col justify-around items-center gap-8 text-white font-extrabold text-[30vw]  z-4 wish-heading *:sm:text-7xl">
             <motion.h2
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
@@ -104,17 +104,27 @@ const UserHomePage = () => {
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
               className="text-[#e2bdd3] "
             >
-              XYZ,
+              Unisha,
             </motion.h2>
           </div>
           {/* Music Toggle Button */}
           {bgMusic && (
-            <button
+            <div
               onClick={toggleMusic}
-              className="absolute cursor-pointer  top-2 right-2 z-50 px-4 py-2 bg-[#e2bdd3] hover:bg-[#e2bdd3c8] rounded-lg text-xl transition-all"
+              className="absolute flex justify-center items-center gap-2 cursor-pointer  bottom-1/6 right-1/4 sm:right-2 z-2 px-4 py-2 sm:px-4 sm:py-2  rounded-lg sm:xl  sm:text-xl transition-all"
             >
-              {isPlaying ? "🎵" : "🔇"}
-            </button>
+              <img className="h-7" src="/player-start-left.svg" alt="" />
+              {!isPlaying ? (
+                <button onClick={() => setMusicPlayed(true)}>
+                  <img className="h-7" src="/player-play.svg" alt="" />
+                </button>
+              ) : (
+                <button onClick={() => setMusicPlayed(false)}>
+                  <img className="h-7" src="/player-pause.svg" alt="" />
+                </button>
+              )}
+              <img className="h-7" src="/player-start-right.svg" alt="" />
+            </div>
           )}
         </>
       )}

@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../lib/store/store";
 import LoginToUserLoadingPage from "./login-to-user-loading-page";
 import UserHomePage from "./user-home-page";
-
 const UserPage = () => {
   const { name: _name_user } = useSelector(
     (state: RootState) => state.userGeneralSlice
@@ -20,8 +19,10 @@ const UserPage = () => {
   }
 
   return (
-    <main className="relative">
+    <main className="relative bg-[#434978]">
       <UserHomePage />
+
+      <section className="h-dvh"></section>
     </main>
   );
 };
