@@ -60,7 +60,7 @@ const UserHomePage = () => {
           onClick={handleOpenCurtain}
           className="absolute cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-pink-200 rounded-lg z-50 text-lg font-bold hover:bg-pink-300 transition-all"
         >
-          Namaskar Unisha Ji,
+          Welcome ,
         </button>
       )}
 
@@ -102,9 +102,9 @@ const UserHomePage = () => {
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="text-[#e2bdd3]"
+              className="text-[#e2bdd3] "
             >
-              Unisha
+              XYZ,
             </motion.h2>
           </div>
           {/* Music Toggle Button */}

@@ -134,7 +134,7 @@ export default function RandomCanvaBirthdayItems() {
 
       {/* user photo */}
       <motion.div
-        className="absolute z-10 bottom-14"
+        className="absolute z-10 bottom-1/4 sm:bottom-14 "
         initial="hidden"
         animate="visible"
         custom={0.3}
@@ -147,7 +147,7 @@ export default function RandomCanvaBirthdayItems() {
         >
           <motion.img
             draggable={false}
-            className="object-cover -rotate-15 w-20 sm:w-32 md:w-[380px] "
+            className="object-cover -rotate-15 w-[300px] sm:w-32 md:w-[380px] "
             src="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/images/user-photo-frame-1.png"
             alt="penant-flag"
             // variants={float}
@@ -155,7 +155,7 @@ export default function RandomCanvaBirthdayItems() {
             animate="visible"
             custom={0.3}
           />
-          <Butterfly className="absolute top-10 w-md md:w-32" />
+          <Butterfly className="absolute top-8 sm:top-10 w-[60px] md:w-32" />
         </motion.span>
       </motion.div>
     </>

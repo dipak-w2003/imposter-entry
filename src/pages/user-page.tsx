@@ -19,7 +19,11 @@ const UserPage = () => {
     return <LoginToUserLoadingPage />;
   }
 
-  return <UserHomePage />;
+  return (
+    <main className="relative">
+      <UserHomePage />
+    </main>
+  );
 };
 
 export default UserPage;

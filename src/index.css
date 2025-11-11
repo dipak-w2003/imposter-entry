@@ -13,7 +13,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* important to prevent horizontal scroll */
+  overflow-x: hidden; /*hidden; important to prevent horizontal scroll */
+  background-color: transparent;
+  background-attachment: fixed;
 }
 @font-face {
   font-family: "Apricot";
@@ -82,7 +84,7 @@ body {
   /* color: #ec407a; */
 }
 
-*:has(h1, h2, h3, h4, h5, h6, p, i, header)::selection {
+/* *:has(h1, h2, h3, h4, h5, h6, p, i, header)::selection {
   background: cyan;
   color: whirgb(0, 0, 0);
-}
+} */

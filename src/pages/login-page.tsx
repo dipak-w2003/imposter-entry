@@ -97,7 +97,7 @@ function LoginPage() {
   };
 
   return (
-    <main className="relative flex flex-col justify-center items-center h-dvh w-dvw bg-linear-to-br from-pink-100 via-yellow-50 to-pink-200">
+    <main className="relative flex flex-col justify-center items-center min-h-dvh max-h-dvh bg-linear-to-br bg-blue-800 from-pink-100 via-yellow-50 to-pink-200">
       <section
         className="flex flex-col justify-center items-center relative  rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.15)]
         h-[500px] w-[380px] sm:h-[600px] sm:w-[600px]"

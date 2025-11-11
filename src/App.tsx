@@ -1,46 +1,8 @@
+import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LoginPage from "./pages/login-page";
-import UserPage from "./pages/user-page";
-import Error404Page from "./pages/error-404-page";
-// import { namePredictionsCollections2 } from "./lib/constants/constants";
-// import { useSelector } from "react-redux";
-// import type { RootState } from "./lib/store/store";
-
-// ------------------
-// Hook to check auth
-// ------------------
-// function useAuth() {
-//   const { name, isLoaded } = useSelector(
-//     (state: RootState) => state.userGeneralSlice
-//   );
-//   const isAuthenticated = name && namePredictionsCollections2.includes(name);
-//   return { isAuthenticated, isLoaded };
-// }
-
-// ------------------
-// Private route
-// ------------------
-// function PrivateRoute({ children }: { children: JSX.Element }) {
-//   const { name, isLoaded } = useSelector(
-//     (state: RootState) => state.userGeneralSlice
-//   );
-//   const { isAuthenticated } = useAuth();
-//   alert(`PrivateRoute: {${name}, ${isLoaded}, isAuthenticated }`);
-
-//   return isAuthenticated ? children : <Navigate to="/login" />;
-// }
-
-// ------------------
-// Public route
-// ------------------
-// function PublicRoute({ children }: { children: JSX.Element }) {
-//   const { isAuthenticated } = useAuth();
-//   return isAuthenticated ? <Navigate to="/user" /> : children;
-// }
-
-// ------------------
-// Router setup
-// ------------------
+const LoginPage = lazy(() => import("./pages/login-page"));
+const UserPage = lazy(() => import("./pages/user-page"));
+const Error404Page = lazy(() => import("./pages/error-404-page"));
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -58,11 +20,19 @@ export const router = createBrowserRouter([
     path: "*",
     element: <Error404Page />,
   },
+  {
+    path: "/xyz",
+    element: <main className="h-dvh w-dvw bg-black"></main>,
+  },
 ]);
 
 // ------------------
 // App entry
 // ------------------
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <main className="flex flex-col relative z-99999 ">
+      <RouterProvider router={router} />
+    </main>
+  );
 }
