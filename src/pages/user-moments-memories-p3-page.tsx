@@ -91,7 +91,7 @@ const UserMomentsMemoriesP3Page = () => {
   ];
 
   return (
-    <div className="embla flex min-w-full relative  items-center justify-center h-dvh bg-[#222222] ">
+    <div className="embla flex min-w-full relative  items-center justify-center h-dvh bg-[#3c3a3a] ">
       <EmblaCarousel slides={_datas} />
     </div>
   );

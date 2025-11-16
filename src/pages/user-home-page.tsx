@@ -89,12 +89,12 @@ const UserHomePage = () => {
           />
 
           <RandomCanvaBirthdayItems />
-          <div className="wishes absolute top-24 flex flex-col justify-around items-center gap-8 text-white font-extrabold text-[30vw]  z-4 wish-heading *:sm:text-7xl">
+          <div className="wishes absolute top-1/10 sm:top-24 flex flex-col justify-around items-center gap-8 text-white font-extrabold text-[30vw]  z-4 wish-heading   *:sm:text-7xl">
             <motion.h2
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className=" sm:text-5xl relative z-2 items"
+              className=" text-[5rem] sm:text-6xl relative z-2 items"
             >
               Happy Birthday
             </motion.h2>
@@ -102,7 +102,7 @@ const UserHomePage = () => {
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="text-[#e2bdd3] "
+              className=" text-[7rem] sm:text-6xl text-[#e2bdd3] "
             >
               Unisha,
             </motion.h2>
@@ -111,7 +111,11 @@ const UserHomePage = () => {
           {bgMusic && (
             <div className="absolute flex justify-center items-center gap-2 cursor-pointer  bottom-1/6 right-1/4 sm:right-2 z-2 px-4 py-2 sm:px-4 sm:py-2  rounded-lg sm:xl  sm:text-xl transition-all">
               <button className="cursor-pointer" type="button">
-                <img className="h-7" src="/player-start-left.svg" alt="" />
+                <img
+                  className="h-10 sm:30"
+                  src="/player-start-left.svg"
+                  alt=""
+                />
               </button>
               {!isPlaying ? (
                 <button
@@ -119,7 +123,7 @@ const UserHomePage = () => {
                   type="button"
                   onClick={toggleMusic}
                 >
-                  <img className="h-7" src="/player-play.svg" alt="" />
+                  <img className="h-10 sm:30" src="/player-play.svg" alt="" />
                 </button>
               ) : (
                 <button
@@ -127,11 +131,15 @@ const UserHomePage = () => {
                   type="button"
                   onClick={toggleMusic}
                 >
-                  <img className="h-7" src="/player-pause.svg" alt="" />
+                  <img className="h-10 sm:30" src="/player-pause.svg" alt="" />
                 </button>
               )}
               <button className="cursor-pointer" type="button">
-                <img className="h-7" src="/player-start-right.svg" alt="" />
+                <img
+                  className="h-10 sm:30"
+                  src="/player-start-right.svg"
+                  alt=""
+                />
               </button>
             </div>
           )}

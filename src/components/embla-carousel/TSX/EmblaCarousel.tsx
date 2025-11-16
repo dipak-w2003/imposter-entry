@@ -32,9 +32,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   return (
     <div className="embla flex flex-col gap-11">
       <header className="mt-2 sm:mt-10 wish-heading text-6xl  text-center mx-auto text-white flex justify-evenly w-full ">
-        <p className="text-[#b39c3f]">Memories</p>
+        <p className="text-[#b39c3f] text-[4.5rem] sm:text-[6rem]">Memories</p>
         <b>&</b>
-        <p className="text-[#e2bdd3]">Moments</p>
+        <p className="text-[#e2bdd3] text-[4.5rem] sm:text-[6rem]">Moments</p>
       </header>
       <div className="embla__viewport" ref={emblaRef}>
         {/* slider container */}
@@ -50,13 +50,18 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   className="h-[150px] w-[150px] object-center  border-none"
                   alt="topic-image"
                 />
-                <header className="h-[fit] text-4xl sm:text-2xl underline ">
+                <header
+                  className={`h-[fit] wishing-heading text-4xl font-bold sm:text-2xl underline`}
+                >
                   {slide_item.mm_topic[currentLang] || ""}
                 </header>
-                <article className=" h-fit w-full text-xl sm:text-lg text-center px-3 ">
+                <article
+                  className={`h-fit w-full text-2xl sm:text-lg text-center px-3 `}
+                >
                   {slide_item.mm_des[currentLang]}
                 </article>
 
+                {/* Lang Toggling UI/UX */}
                 <button
                   type="button"
                   onClick={toggleLang}

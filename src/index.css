@@ -2,7 +2,9 @@
 /* 🌈 Import all impressive cursive fonts */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster+Two:wght@700&family=Dancing+Script:wght@600&family=Great+Vibes&family=Caveat:wght@600&family=Satisfy&family=Allura&family=Parisienne&family=Cookie&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
-
+body {
+  scroll-behavior: smooth;
+}
 *::selection {
   background: transparent;
 }

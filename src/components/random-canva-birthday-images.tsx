@@ -179,20 +179,20 @@ export default function RandomCanvaBirthdayItems() {
           <img
             loading="lazy"
             draggable={false}
-            className="object-cover z-0 w-[280px] sm:w-72 md:w-[380px] rounded-md shadow-lg"
+            className="object-cover z-0 w-[300px] min-w-[300px]   sm:w-72 md:w-[380px] rounded-md shadow-lg"
             src={`https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/images/${USER_IMAGES[currentIMGIndex]}`}
             alt={`user-photo-${currentIMGIndex + 1}`}
           />
 
           {/* ⭕ Image Navigation Dots */}
-          <div className="absolute top-1/4 -right-8 flex flex-col p-2 gap-2">
+          <div className="absolute top-1/4 -right-12 flex flex-col p-2 gap-2">
             {USER_IMAGES.map((_, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => handleSelectImage(index)}
                 aria-label={`Select photo ${index + 1}`}
-                className={`h-3 w-3 rounded-full transition-all duration-200 ${
+                className={`h-4 w-4 rounded-full transition-all duration-200 ${
                   currentIMGIndex === index
                     ? "bg-gray-500 scale-110"
                     : "bg-gray-300 hover:bg-gray-400"
