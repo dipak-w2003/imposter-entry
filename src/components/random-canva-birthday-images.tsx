@@ -26,6 +26,7 @@ export default function RandomCanvaBirthdayItems() {
     "user-photo-frame-1.png",
     "user-photo-frame-2.png",
     "user-photo-frame-3.png",
+    "user-photo-frame-4.png",
   ];
 
   // 🕐 Optional: auto change image every 6 seconds

@@ -12,6 +12,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.2",
     "@tailwindcss/vite": "^4.1.16",
+    "embla-carousel-fade": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.24",
     "howler": "^2.2.4",
     "lottie-react": "^2.4.1",

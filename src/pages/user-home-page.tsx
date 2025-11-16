@@ -67,7 +67,7 @@ const UserHomePage = () => {
 
       {/* Curtain Overlay */}
       <motion.div
-        className={`fixed top-0 left-0 h-full w-full bg-gradient-to-b from-pink-300 to-yellow-200 z-9999 ${
+        className={`fixed top-0 left-0 h-dvh w-full bg-gradient-to-b from-pink-300 to-yellow-200 z-9999 ${
           openCurtain ? "pointer-events-none" : "pointer-events-auto"
         }`}
         animate={{ x: openCurtain ? "100%" : "0%" }}
@@ -109,21 +109,30 @@ const UserHomePage = () => {
           </div>
           {/* Music Toggle Button */}
           {bgMusic && (
-            <div
-              onClick={toggleMusic}
-              className="absolute flex justify-center items-center gap-2 cursor-pointer  bottom-1/6 right-1/4 sm:right-2 z-2 px-4 py-2 sm:px-4 sm:py-2  rounded-lg sm:xl  sm:text-xl transition-all"
-            >
-              <img className="h-7" src="/player-start-left.svg" alt="" />
+            <div className="absolute flex justify-center items-center gap-2 cursor-pointer  bottom-1/6 right-1/4 sm:right-2 z-2 px-4 py-2 sm:px-4 sm:py-2  rounded-lg sm:xl  sm:text-xl transition-all">
+              <button className="cursor-pointer" type="button">
+                <img className="h-7" src="/player-start-left.svg" alt="" />
+              </button>
               {!isPlaying ? (
-                <button onClick={() => setMusicPlayed(true)}>
+                <button
+                  className="cursor-pointer"
+                  type="button"
+                  onClick={toggleMusic}
+                >
                   <img className="h-7" src="/player-play.svg" alt="" />
                 </button>
               ) : (
-                <button onClick={() => setMusicPlayed(false)}>
+                <button
+                  className="cursor-pointer"
+                  type="button"
+                  onClick={toggleMusic}
+                >
                   <img className="h-7" src="/player-pause.svg" alt="" />
                 </button>
               )}
-              <img className="h-7" src="/player-start-right.svg" alt="" />
+              <button className="cursor-pointer" type="button">
+                <img className="h-7" src="/player-start-right.svg" alt="" />
+              </button>
             </div>
           )}
         </>

@@ -10,7 +10,7 @@ const LoginToUserLoadingPage = () => {
       </h1>
       <div className="h-[300px] w-[300px]">
         <LottieAnimationProvider
-          url="https://raw.githubusercontent.com/dipak-w2003/unisha-verse/main/projects/imposter-entry/lottie-json-animations/sandy-loading.json"
+          url="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse/projects/imposter-entry/lottie-json-animations/sandy-loading.json"
           loop
         />
       </div>

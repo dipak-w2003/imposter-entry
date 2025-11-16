@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../lib/store/store";
 import LoginToUserLoadingPage from "./login-to-user-loading-page";
 import UserHomePage from "./user-home-page";
+import UserWishingP2Page from "./user-wishing-p2-page";
+import UserMomentsMemoriesP3Page from "./user-moments-memories-p3-page";
 const UserPage = () => {
   const { name: _name_user } = useSelector(
     (state: RootState) => state.userGeneralSlice
@@ -21,8 +23,8 @@ const UserPage = () => {
   return (
     <main className="relative bg-[#434978]">
       <UserHomePage />
-
-      <section className="h-dvh"></section>
+      <UserWishingP2Page />
+      <UserMomentsMemoriesP3Page />
     </main>
   );
 };
