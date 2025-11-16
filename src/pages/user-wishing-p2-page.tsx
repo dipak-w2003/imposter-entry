@@ -7,7 +7,7 @@ const UserWishingP2Page = () => {
             "https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/gifs/number-23-gif-4.gif"
           }
           alt="number-age-23"
-          className="h-28 mx-auto"
+          className="h-50 sm:28 mx-auto"
         />
       </header>
 
@@ -15,24 +15,24 @@ const UserWishingP2Page = () => {
         <img
           src="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/gifs/happy-birthday-text-gif-1.gif"
           alt=""
-          className="hbd-text-gifs h-56"
+          className="hbd-text-gifs h-90 sm:h-56 "
         />
         <img
           src="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/gifs/sparkling-diamonds-gif-2.gif"
           alt=""
-          className="hbd-text-gifs h-24"
+          className="hbd-text-gifs h-28 sm:24"
         />
 
         <img
           src="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/gifs/sliced-cake-gif-3.gif"
           alt=""
-          className="absolute right-10 sm:right-0 top-4/10 sm:top-1/2 hbd-text-gifs h-56"
+          className="absolute right-10 sm:right-0 top-4/10 sm:top-1/2 hbd-text-gifs h-88 sm:h-56"
         />
         {/*  */}
       </div>
 
       <div className="box-quote absolute bottom-2/10 w-full sm:bottom-0  ">
-        <p className="w-[90%] relative   bg-white rounded-xl border-3 border-[#34be9a] px-5 py-5 mx-auto text-xl text-center ">
+        <p className="w-[90%] relative  h-[150px] sm:h-[300px]  bg-white rounded-xl border-3 border-[#34be9a] px-5 py-5 mx-auto text-3xl sm:text-4xl text-center flex justify-center items-center ">
           <q>
             May your heart stay light, your smile bright, and your dreams near.
             Happy Birthday to someone truly special. 🎂🌸

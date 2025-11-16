@@ -31,8 +31,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   };
   return (
     <div className="embla flex flex-col gap-11">
-      <header className="mt-2 sm:mt-10 wish-heading text-4xl text-center mx-auto text-white">
-        Memories & Moments
+      <header className="mt-2 sm:mt-10 wish-heading text-6xl  text-center mx-auto text-white flex justify-evenly w-full ">
+        <p className="text-[#b39c3f]">Memories</p>
+        <b>&</b>
+        <p className="text-[#e2bdd3]">Moments</p>
       </header>
       <div className="embla__viewport" ref={emblaRef}>
         {/* slider container */}
@@ -42,7 +44,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               className="embla__slide min-h-[400px] flex justify-around items-center relative "
               key={slide_item.img_url}
             >
-              <span className=" relative bg-[#545353fc] rounded-md text-white w-[300px] flex flex-col justify-center gap-6 items-center h-[380px] ">
+              <span className=" relative bg-[#545353fc] rounded-xl text-white w-[300px] flex flex-col justify-center gap-6 items-center h-[380px] ">
                 <img
                   src={slide_item.img_url}
                   className="h-[150px] w-[150px] object-center  border-none"
@@ -63,13 +65,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   {currentLang && currentLang !== "nep" ? (
                     <img
                       src="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/svgs/other/lang-eng-nep.svg"
-                      className="h-10 animate-pulse"
+                      className="h-13 sm:h-22 animate-pulse"
                       alt=""
                     />
                   ) : (
                     <img
                       src="https://cdn.jsdelivr.net/gh/dipak-w2003/unisha-verse@main/projects/imposter-entry/svgs/other/lang-nep-eng.svg"
-                      className="h-10 animate-pulse"
+                      className="h-13 sm:h-22 animate-pulse"
                       alt=""
                     />
                   )}
