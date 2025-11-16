@@ -44,7 +44,6 @@ body {
 /* 🎉 Surprise, party, or fun titles */
 .fun-heading {
   font-family: "Pacifico", cursive;
-  font-size: 3.5rem;
   /* color: #ff4081; */
   /* text-shadow: 1px 2px 5px rgba(255, 105, 180, 0.4); */
 }
@@ -52,7 +51,7 @@ body {
 /* 💌 Romantic or heartfelt message */
 .romantic-message {
   font-family: "Dancing Script", cursive;
-  font-size: 2rem;
+  /* font-size: 2rem; */
   /* color: #ad1457; */
   line-height: 1.6;
 }
@@ -60,14 +59,11 @@ body {
 /* 💫 Handwritten wish (personal style) */
 .handwritten {
   font-family: "Caveat", cursive;
-  font-size: 1.8rem;
-  color: #6a1b9a;
 }
 
 /* 💎 Luxury or elegant note */
 .elegant {
   font-family: "Parisienne", cursive;
-  font-size: 2.2rem;
   /* color: #9c27b0; */
   letter-spacing: 1px;
 }
@@ -75,14 +71,12 @@ body {
 /* 🧁 Classy thank-you or sweet notes */
 .cookie-style {
   font-family: "Cookie", cursive;
-  font-size: 2rem;
   /* color: #f06292; */
 }
 
 /* 🌟 Simple script with modern feel */
 .satisfy-style {
   font-family: "Satisfy", cursive;
-  font-size: 2rem;
   /* color: #ec407a; */
 }
 

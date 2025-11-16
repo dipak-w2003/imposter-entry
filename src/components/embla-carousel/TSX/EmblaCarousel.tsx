@@ -44,7 +44,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               className="embla__slide min-h-[400px] flex justify-around items-center relative "
               key={slide_item.img_url}
             >
-              <span className=" relative bg-[#545353fc] rounded-xl text-white w-[300px] flex flex-col justify-center gap-6 items-center h-[380px] ">
+              <span className=" relative bg-[#545353fc] rounded-xl text-white w-[300px] flex flex-col justify-center gap-6 items-center h-[400px] ">
                 <img
                   src={slide_item.img_url}
                   className="h-[150px] w-[150px] object-center  border-none"

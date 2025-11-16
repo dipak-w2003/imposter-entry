@@ -5,6 +5,8 @@ import LoginToUserLoadingPage from "./login-to-user-loading-page";
 import UserHomePage from "./user-home-page";
 import UserWishingP2Page from "./user-wishing-p2-page";
 import UserMomentsMemoriesP3Page from "./user-moments-memories-p3-page";
+import UserHowISeeHerP4Page from "./user-how-i-see-her-p4-page";
+import { UserHeartWarmmingWishingP5Page } from "./user-heart-warmming-wishing-p5-page";
 const UserPage = () => {
   const { name: _name_user } = useSelector(
     (state: RootState) => state.userGeneralSlice
@@ -25,6 +27,8 @@ const UserPage = () => {
       <UserHomePage />
       <UserWishingP2Page />
       <UserMomentsMemoriesP3Page />
+      <UserHowISeeHerP4Page />
+      <UserHeartWarmmingWishingP5Page />
     </main>
   );
 };
