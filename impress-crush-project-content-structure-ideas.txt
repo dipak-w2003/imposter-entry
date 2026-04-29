@@ -1,0 +1,20 @@
+1. interactive home page & login page 
+  * like scrolling to play or preview something unique
+  * 
+
+2. A menu toddler which have links like;
+links for pages
+games
+note taking
+my journal of her ( days after i met her long time & after she went for foreign employement
+Logout
+
+3. contents idea;
+each pages with interactive dashing welcome & different music
+lottie animations
+features like FB POST management (cmt,reactions, share, download etc)
+a video of her father wishing her happy birthday
+funny way of appreciating her photos 
+
+
+( Her media files will be locked up as vault method )
