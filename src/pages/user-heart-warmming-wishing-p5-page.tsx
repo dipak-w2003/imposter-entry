@@ -1,7 +1,7 @@
 import { motion, useAnimation, type Variants } from "framer-motion";
 import { useEffect } from "react";
 
-export const UserHeartWarmmingWishingP5Page = () => {
+export default function UserHeartWarmmingWishingP5Page() {
   const futureWish =
     "May your life be full of happiness, success, and beautiful surprises !";
 
@@ -52,4 +52,4 @@ export const UserHeartWarmmingWishingP5Page = () => {
       </motion.h1>
     </div>
   );
-};
+}

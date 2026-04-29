@@ -31,7 +31,14 @@ export const router = createBrowserRouter([
 // ------------------
 export default function App() {
   return (
-    <main className="flex flex-col relative z-99999 ">
+    <main
+      className="
+    flex flex-col relative z-99999
+            // padding only on mobile
+    max-md:flex-col      // stack vertically below md
+    max-md:overflow-hidden
+  "
+    >
       <RouterProvider router={router} />
     </main>
   );
